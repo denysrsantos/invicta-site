@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invicta — Simulação imobiliária que vira decisão</title>
+  <meta name="description" content="Invicta é a plataforma de simulação imobiliária que transforma projeções em decisões seguras. Crédito, cenários, rentabilidade e apresentação profissional para corretores e imobiliárias." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b1420;           /* Navy profundo */
+      --card: #0f1c2a;         /* Navy um tom acima */
+      --text: #e6eef7;         /* Texto claro */
+      --muted: #9fb0c6;        /* Texto suave */
+      --brand: #f2c94c;        /* Dourado premium */
+      --brand-2: #4cc9f0;      /* Acento frio */
+      --stroke: rgba(255,255,255,.08);
+    }
+    html, body { background: radial-gradient(1200px 800px at 70% -10%, rgba(76,201,240,.08), transparent 45%), var(--bg); color: var(--text); font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    .navbar { background: rgba(11,20,32,.6); backdrop-filter: blur(8px); border-bottom: 1px solid var(--stroke); }
+    .brand-badge { display:inline-flex; align-items:center; gap:.6rem; font-weight:700; letter-spacing:.4px; }
+    .brand-dot { width:12px; height:12px; border-radius:50%; background: linear-gradient(135deg, var(--brand), #ffeaa7); box-shadow: 0 0 0 4px rgba(242,201,76,.15); }
+    .btn-brand { background: var(--brand); color:#111; border:0; font-weight:700; }
+    .btn-brand:hover { filter: brightness(.95); color:#111; }
+    .btn-outline-brand { border:1px solid var(--brand); color: var(--text); }
+    .btn-outline-brand:hover { background: rgba(242,201,76,.12); color: var(--text); }
+
+    /* Hero */
+   
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 60vh;                 /* ocupa praticamente a tela toda */
+  padding: clamp(4rem, 6vw, 6rem) 0;/* menos padding pra dar mais área à imagem */
+  background: url('https://st3.idealista.pt/news/arquivos/styles/fullwidth_xl/public/2025-01/images/investidor_contente_freepik.jpg?VersionId=nZCu7l4Q6I6ypxoy7C7EESbCFc.NNckU&itok=aLC37qi8')
+              no-repeat center center/cover;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11,20,32,.65), rgba(11,20,32,.78)); /* overlay p/ contraste */
+}
+.hero-content {
+position: relative;
+z-index: 2;
+}
+.hero h1 { font-weight: 800; letter-spacing: -.02em; }
+.hero p.lead { color: var(--muted); }
+
+  .glow { position:absolute; inset: -20% -10% auto -10%; height: 380px; filter: blur(60px); background: radial-gradient(closest-side, rgba(242,201,76,.15), transparent); pointer-events:none; }
+
+
+    /* Cards */
+    .feature-card { background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00)); border:1px solid var(--stroke); border-radius:16px; padding:1.25rem; height:100%; transition: transform .25s ease, border-color .25s ease; }
+    .feature-card:hover { transform: translateY(-4px); border-color: rgba(242,201,76,.35); }
+    .icon { width: 42px; height: 42px; border-radius:10px; display:grid; place-items:center; background: rgba(242,201,76,.12); color: var(--brand); }
+
+    /* Steps */
+    .step { background: var(--card); border:1px solid var(--stroke); border-radius:16px; padding:1.25rem; height:100%; }
+    .step-num { width:32px; height:32px; border-radius:8px; background: rgba(76,201,240,.16); color:#a8eaff; font-weight:700; display:grid; place-items:center; }
+
+    /* CTA banner */
+    .cta { background: linear-gradient(180deg, rgba(242,201,76,.12), rgba(242,201,76,.02)); border:1px solid var(--stroke); border-radius:20px; }
+
+    /* Footer */
+    footer { border-top:1px solid var(--stroke); color: var(--muted); }
+    a { color: var(--brand-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg py-3 sticky-top">
+    <div class="container">
+      <a class="navbar-brand text-white brand-badge" href="#">
+        <span class="brand-dot"></span>
+        <span>Invicta</span>
+      </a>
+      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-3">
+          <li class="nav-item"><a class="nav-link text-white-50" href="#como-funciona">Como funciona</a></li>
+          <li class="nav-item"><a class="nav-link text-white-50" href="#recursos">Recursos</a></li>
+          <li class="nav-item"><a class="nav-link text-white-50" href="#faq">Dúvidas</a></li>
+          <li class="nav-item"><a class="btn btn-sm btn-outline-brand ms-lg-2" href="#contato">Fale com a gente</a></li>
+          <li class="nav-item"><a class="btn btn-sm btn-brand ms-lg-1" href="#teste">Começar agora</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<!-- Hero -->
+<section class="hero text-white text-center">
+<div class="hero-overlay"></div>
+<div class="container hero-content">
+<h1 class="display-4 mb-3">Simulação imobiliária que <span class="text-warning">vira decisão</span>.</h1>
+<p class="lead mb-4">Invicta une crédito, cenários e rentabilidade para corretores e imobiliárias apresentarem uma proposta <strong>clara, confiável e vencedora</strong>.</p>
+<div class="d-flex justify-content-center gap-2">
+<a href="#teste" class="btn btn-brand btn-lg px-4">Testar o Invicta</a>
+<a href="#demo" class="btn btn-outline-brand btn-lg px-4">Ver demo</a>
+</div>
+
+</div>
+</section>
+
+  <!-- Provas rápidas -->
+<section class="py-4">
+  <div class="container">
+    <div class="p-3 p-md-4 rounded-4" style="background: var(--card); border:1px solid var(--stroke);">
+      <div class="row g-3 text-center small">
+        <div class="col-6 col-lg-3">
+          <div class="py-2 px-3 h-100 rounded-3" style="background: rgba(255,255,255,.02);">
+            Apresentações profissionais em 1 clique
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="py-2 px-3 h-100 rounded-3" style="background: rgba(255,255,255,.02);">
+            Financiamento com bancos parceiros
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="py-2 px-3 h-100 rounded-3" style="background: rgba(255,255,255,.02);">
+            ROI e payback do imóvel
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="py-2 px-3 h-100 rounded-3" style="background: rgba(255,255,255,.02);">
+            Relatórios em PDF compartilháveis
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Recursos principais -->
+  <section id="recursos" class="py-5">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold">Tudo que você precisa para fechar com segurança</h2>
+        <p class="text-white-50">Cálculo certo, cenário claro e material de venda pronto.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="icon mb-3">💳</div>
+            <h5 class="mb-1">Crédito inteligente</h5>
+            <p class="text-white-50 mb-0">Parcelas, juros, entrada e prazos com simulação guiada para o cliente.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="icon mb-3">📈</div>
+            <h5 class="mb-1">Cenários comparativos</h5>
+            <p class="text-white-50 mb-0">Pessimista, conservador e otimista, com curvas de evolução.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="icon mb-3">🏦</div>
+            <h5 class="mb-1">Benchmark financeiro</h5>
+            <p class="text-white-50 mb-0">Compare com SELIC, CDB e FIIs para falar a língua do investidor.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="icon mb-3">🧾</div>
+            <h5 class="mb-1">PDFs e propostas</h5>
+            <p class="text-white-50 mb-0">Propostas visuais, prontas para compartilhar no WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Como funciona -->
+  <section id="como-funciona" class="py-5">
+    <div class="container">
+      <div class="row align-items-start g-4">
+        <div class="col-lg-5">
+          <h2 class="fw-bold mb-2">Do cálculo à decisão, em minutos</h2>
+          <p class="text-white-50">Invicta orienta o corretor com passos claros e entrega um material que convence pela lógica e pelo visual.</p>
+        </div>
+        <div class="col-lg-7">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="step h-100">
+                <div class="d-flex align-items-center gap-2 mb-2"><span class="step-num">1</span><strong>Dados do imóvel</strong></div>
+                <p class="text-white-50 mb-0">Preço, entrada, localização e perfil do cliente.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="step h-100">
+                <div class="d-flex align-items-center gap-2 mb-2"><span class="step-num">2</span><strong>Simulação de crédito</strong></div>
+                <p class="text-white-50 mb-0">Parcelas, juros e prazos com alternativas lado a lado.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="step h-100">
+                <div class="d-flex align-items-center gap-2 mb-2"><span class="step-num">3</span><strong>Cenários e rentabilidade</strong></div>
+                <p class="text-white-50 mb-0">Projeções pessimista/conservador/otimista e ROI.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="step h-100">
+                <div class="d-flex align-items-center gap-2 mb-2"><span class="step-num">4</span><strong>Proposta em PDF</strong></div>
+                <p class="text-white-50 mb-0">Apresente com identidade profissional e compartilhe em 1 clique.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="py-5">
+    <div class="container">
+      <div class="cta p-4 p-md-5 text-center">
+        <h3 class="fw-bold mb-2">Coloque sua imobiliária na posição vencedora.</h3>
+        <p class="text-white-50 mb-4">Convencimento pelo cálculo, confiança pelo visual, decisão pela clareza.</p>
+        <a href="#teste" class="btn btn-brand btn-lg px-4">Quero testar o Invicta</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-5">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold">Dúvidas frequentes</h2>
+        <p class="text-white-50">Tudo para começar sem fricção.</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="accordion" id="faqAcc">
+            <div class="accordion-item bg-transparent text-white border rounded-3 overflow-hidden mb-3" style="border-color: var(--stroke);">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-white" type="button" data-bs-toggle="collapse" data-bs-target="#f1">Como funciona a simulação?</button>
+              </h2>
+              <div id="f1" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                <div class="accordion-body text-white-50">Você informa dados do imóvel e do cliente; o sistema projeta parcelas, juros e cenários de rentabilidade (pessimista/conservador/otimista), gerando uma proposta em PDF.</div>
+              </div>
+            </div>
+            <div class="accordion-item bg-transparent text-white border rounded-3 overflow-hidden mb-3" style="border-color: var(--stroke);">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-white" type="button" data-bs-toggle="collapse" data-bs-target="#f2">Consigo comparar com SELIC, CDB e FII?</button>
+              </h2>
+              <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                <div class="accordion-body text-white-50">Sim, o Invicta apresenta benchmarks financeiros para falar a língua do investidor.</div>
+              </div>
+            </div>
+            <div class="accordion-item bg-transparent text-white border rounded-3 overflow-hidden mb-3" style="border-color: var(--stroke);">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-white" type="button" data-bs-toggle="collapse" data-bs-target="#f3">É possível personalizar a proposta em PDF?</button>
+              </h2>
+              <div id="f3" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                <div class="accordion-body text-white-50">Sim. É possível aplicar a identidade da imobiliária (logo, cores e contatos) e incluir observações comerciais.</div>
+              </div>
+            </div>
+            <div class="accordion-item bg-transparent text-white border rounded-3 overflow-hidden" style="border-color: var(--stroke);">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-white" type="button" data-bs-toggle="collapse" data-bs-target="#f4">Quais são os próximos módulos?</button>
+              </h2>
+              <div id="f4" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                <div class="accordion-body text-white-50">Planejamos <strong>Invicta Hub</strong>: CRM leve, integração com crédito, carteira de imóveis e relatórios de performance.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato / Rodapé -->
+  <footer id="contato" class="py-4">
+    <div class="container">
+      <div class="row gy-3 align-items-center">
+        <div class="col-md-6">
+          <div class="brand-badge mb-1"><span class="brand-dot"></span><span>Invicta <span class="text-warning">SIM</span></span></div>
+          <div class="small">© <span id="year"></span> Invicta. Todos os direitos reservados. • <span class="text-white-50">invictasim.com.br</span></div>
+        </div>
+        <div class="col-md-6 text-md-end small">
+          <a href="#" class="me-3">Termos</a>
+          <a href="#" class="me-3">Privacidade</a>
+          <a href="#">Contato</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
